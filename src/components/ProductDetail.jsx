@@ -5,7 +5,6 @@ import { useShoppi } from '../hooks/useShoppi'
 function ProductDetail() {
   const { detailProduct, productToShow, toggleDetailProduct } = useShoppi()
 
-  console.log(productToShow)
   return (
     <>
       {detailProduct && (

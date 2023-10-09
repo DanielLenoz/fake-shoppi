@@ -9,20 +9,29 @@ function Home() {
     setCartProducts,
     count,
     setCount,
-    setDetailProduct,
     setProductToShow,
+    setDetailProduct,
+    setCheckoutSideMenu,
+    toggleDetailProduct,
   } = useShoppi()
   return (
-    <main className="bg-slate-100 dark:bg-slate-900">
-      <Cards
-        data={items}
-        cartProducts={cartProducts}
-        setCartProducts={setCartProducts}
-        count={count}
-        setCount={setCount}
-        setDetailProduct={setDetailProduct}
-        setProductToShow={setProductToShow}
-      />
+    <main className="grid justify-center justify-items-center gap-5 bg-slate-100 px-5 pt-9 dark:bg-slate-900 md:grid-cols-3 lg:grid-cols-4 lg:pt-16">
+      {items.map((items) => {
+        return (
+          <Cards
+            key={items.id}
+            data={items}
+            cartProducts={cartProducts}
+            count={count}
+            setCartProducts={setCartProducts}
+            setCount={setCount}
+            setProductToShow={setProductToShow}
+            setDetailProduct={setDetailProduct}
+            setCheckoutSideMenu={setCheckoutSideMenu}
+            toggleDetailProduct={toggleDetailProduct}
+          />
+        )
+      })}
     </main>
   )
 }

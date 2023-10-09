@@ -11,16 +11,12 @@ function ShoppiPrivider({ children }) {
 
   const [menuActive, setMenuActive] = useState(false)
 
-  const [cartProducts, setCartProducts] = useState([])
-
   const [themes, setTemes] = useState(storedThemes === 'dark')
 
-  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
-  const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
-  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
-
-  const [detailProduct, setDetailProduct] = useState(true)
+  const [detailProduct, setDetailProduct] = useState(false)
+  const [checkoutSideMenu, setCheckoutSideMenu] = useState(false)
   const [productToShow, setProductToShow] = useState({})
+  const [cartProducts, setCartProducts] = useState([])
 
   const toggleMenu = () => {
     setMenuActive(!menuActive)
@@ -32,8 +28,14 @@ function ShoppiPrivider({ children }) {
 
   const toggleDetailProduct = () => {
     setDetailProduct(!detailProduct)
+    setCheckoutSideMenu(false)
+
   }
 
+  const toggleCheckoutSideMenu = () => { 
+    setCheckoutSideMenu(!checkoutSideMenu)
+    setDetailProduct(false)
+  }
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products?limit=400&offset=10')
       .then((response) => response.json())
@@ -60,13 +62,16 @@ function ShoppiPrivider({ children }) {
         count,
         detailProduct,
         productToShow,
+        checkoutSideMenu,
         toggleMenu,
         toggleTheme,
         toggleDetailProduct,
+        toggleCheckoutSideMenu,
         setCartProducts,
         setCount,
         setDetailProduct,
         setProductToShow,
+        setCheckoutSideMenu,
       }}
     >
       {children}

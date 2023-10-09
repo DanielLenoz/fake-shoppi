@@ -7,24 +7,24 @@ import { MyAccount } from './pages/MyAccount'
 import { MyOrders } from './pages/MyOrders'
 import { SignIn } from './pages/SignIn'
 import { ProductDetail } from './components/ProductDetail'
+import { CheckoutSideMenu } from './components/CheckoutSideMenu'
 
 function App() {
-
-
   return (
     <>
       <HashRouter>
         <ShoppiPrivider>
-          <Menu/>
+          <Menu />
           <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/:id' element={<Area />} />
-            <Route path='/MyAccount' element={<MyAccount />} />
-            <Route path='/MyOrders' element={<MyOrders />} />
-            <Route path='/SignIn' element={<SignIn />} />
-            <Route path='/*' element={<p>no se encuentra</p>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<Area />} />
+            <Route path="/MyAccount" element={<MyAccount />} />
+            <Route path="/MyOrders" element={<MyOrders />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/*" element={<p>no se encuentra</p>} />
           </Routes>
-          <ProductDetail/>
+          <ProductDetail />
+          <CheckoutSideMenu />
         </ShoppiPrivider>
       </HashRouter>
     </>
