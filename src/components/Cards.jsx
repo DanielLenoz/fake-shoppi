@@ -10,10 +10,15 @@ function Cards({data}) {
       setCartProducts,
       count,
       setCount,
-    //   openCheckoutSideMenu,
-    //   closeProductDetail,
+      setDetailProduct,
+      setProductToShow,
     } = useShoppi()
 
+  const showProduct = (productDetail) => {
+    setDetailProduct(true)
+    setProductToShow(productDetail)
+    }
+  
     const addProductsToCart = (event, productData) => {
       event.stopPropagation()
       setCount(count + 1)
@@ -30,7 +35,7 @@ function Cards({data}) {
       if (isInCart) {
         return (
           <div className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-black p-1">
-            <BiCheck className="h-6 w-6 text-white"></BiCheck>
+            <BiCheck className="h-6 w-6 cursor-pointer text-white"></BiCheck>
           </div>
         )
       } else {
@@ -39,18 +44,19 @@ function Cards({data}) {
             className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-white p-1"
             onClick={(event) => addProductsToCart(event, data)}
           >
-            <BiPlus className="h-6 w-6 text-black"></BiPlus>
+            <BiPlus className="h-6 w-6 cursor-pointer text-black"></BiPlus>
           </div>
         )
       }
     }
 
   return (
-    <section className="grid justify-center justify-items-center gap-5 px-5 md:grid-cols-3 lg:grid-cols-4 ">
+    <section className="grid justify-center justify-items-center gap-5 px-5 pt-9 md:grid-cols-3 lg:grid-cols-4 ">
       {data.map((data) => {
         return (
           <div
             className="h-60 w-56 cursor-pointer rounded-lg bg-white"
+            key={data.id}
             onClick={() => showProduct(data)}
           >
             <figure className="relative mb-2 h-4/5 w-full">

@@ -16,7 +16,7 @@ function Menu() {
 
   return (
     <header>
-      <nav className="relative z-10 flex items-center justify-between bg-slate-100 px-5 dark:bg-slate-900 lg:flex-row-reverse ">
+      <nav className="fixed top-0 z-30 flex w-screen items-center justify-between bg-slate-100 px-5 dark:bg-slate-900 lg:flex-row-reverse ">
         <div onClick={toggleTheme}>
           {themes ? (
             <RiMoonFill className=" h-8 w-8 fill-white" />
@@ -63,16 +63,16 @@ function Menu() {
                 />
               )
             })}
-            <li className="flex self-center space-x-2">
+            <li className="flex space-x-2 self-center">
               <RiShoppingCartFill className="h-8 w-8  fill-slate-900 dark:fill-slate-100" />
-              <div className=' text-slate-100'>{count}</div>
+              <div className=" text-slate-900 dark:text-slate-100">{count}</div>
             </li>
           </ul>
         </section>
       </nav>
 
       {!!menuActive && (
-        <section className="relative z-10 grid h-screen justify-center bg-slate-100 dark:bg-slate-900">
+        <section className="fixed top-0 z-20 w-screen grid h-screen justify-center bg-slate-100 dark:bg-slate-900">
           <ul className="font-carter mt-20 grid  gap-1 text-2xl">
             <li className=" text-center text-5xl font-black text-green-400 dark:text-emerald-400">
               Shoppi

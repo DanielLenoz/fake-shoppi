@@ -6,6 +6,7 @@ import { Area } from './pages/Area'
 import { MyAccount } from './pages/MyAccount'
 import { MyOrders } from './pages/MyOrders'
 import { SignIn } from './pages/SignIn'
+import { ProductDetail } from './components/ProductDetail'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/SignIn' element={<SignIn />} />
             <Route path='/*' element={<p>no se encuentra</p>} />
           </Routes>
+          <ProductDetail/>
         </ShoppiPrivider>
       </HashRouter>
     </>

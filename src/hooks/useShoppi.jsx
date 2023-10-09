@@ -3,9 +3,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 const ShoppiContext = createContext()
 
 function ShoppiPrivider({ children }) {
-    const [items, setItems] = useState([])
-    
-    const [count, setCount] = useState(0)
+  const [items, setItems] = useState([])
+
+  const [count, setCount] = useState(0)
 
   const storedThemes = localStorage.getItem('theme')
 
@@ -13,15 +13,14 @@ function ShoppiPrivider({ children }) {
 
   const [cartProducts, setCartProducts] = useState([])
 
-    const [themes, setTemes] = useState(storedThemes === 'dark')
-    
-    const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
-    const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
-    const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
+  const [themes, setTemes] = useState(storedThemes === 'dark')
 
-    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
-    const openProductDetail = () => setIsProductDetailOpen(true)
-    const closeProductDetail = () => setIsProductDetailOpen(false)
+  const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
+  const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
+
+  const [detailProduct, setDetailProduct] = useState(false)
+  const [productToShow, setProductToShow] = useState({})
 
   const toggleMenu = () => {
     setMenuActive(!menuActive)
@@ -31,8 +30,12 @@ function ShoppiPrivider({ children }) {
     localStorage.setItem('theme', !themes ? 'dark' : 'light')
   }
 
+  const toggleDetailProduct = () => {
+    setDetailProduct(!detailProduct)
+  }
+
   useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products')
+    fetch('https://api.escuelajs.co/api/v1/products?limit=400&offset=10')
       .then((response) => response.json())
       .then((data) => setItems(data))
   }, [])
@@ -47,7 +50,6 @@ function ShoppiPrivider({ children }) {
     }
   }, [themes])
 
-  console.log(items)
   return (
     <ShoppiContext.Provider
       value={{
@@ -56,13 +58,15 @@ function ShoppiPrivider({ children }) {
         themes,
         cartProducts,
         count,
+        detailProduct,
+        productToShow,
         toggleMenu,
         toggleTheme,
+        toggleDetailProduct,
         setCartProducts,
         setCount,
-        openCheckoutSideMenu,
-        closeCheckoutSideMenu,
-        closeProductDetail,
+        setDetailProduct,
+        setProductToShow,
       }}
     >
       {children}
