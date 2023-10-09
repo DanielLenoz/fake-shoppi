@@ -48,11 +48,11 @@ function Cards({
   }
 
   return (
-    <section className="grid justify-center justify-items-center gap-5 px-5 pt-9 md:grid-cols-3 lg:grid-cols-4 ">
+    <section className="grid justify-center justify-items-center gap-5 px-5 pt-9 md:grid-cols-3 lg:grid-cols-4 lg:pt-16">
       {data.map((data) => {
         return (
           <div
-            className="h-60 w-56 cursor-pointer rounded-lg bg-white"
+            className="h-60 w-56 cursor-pointer rounded-lg bg-white dark:bg-slate-700 dark:text-slate-100 p-2"
             key={data.id}
             onClick={() => showProduct(data)}
           >

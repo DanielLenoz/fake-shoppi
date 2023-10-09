@@ -9,10 +9,10 @@ function ProductDetail() {
   return (
     <>
       {detailProduct && (
-        <aside className=" fixed right-0 top-0 z-10 h-screen w-screen bg-slate-100 ">
-          <section className="relative top-8 px-3">
-            <section className="flex items-center justify-between">
-              <h2>Detail</h2>
+        <aside className=" fixed right-0 top-0 z-10 md:w-1/4 h-screen w-screen dark:text-slate-100 dark:bg-slate-700 bg-white ">
+          <section className="relative top-8 lg:top-16 px-3">
+            <section className="flex items-center justify-between py-2">
+              <h2 className="text-xl font-medium">Detail</h2>
               <RiCloseFill
                 className="h-6 w-6 cursor-pointer"
                 onClick={() => toggleDetailProduct()}
@@ -26,8 +26,8 @@ function ProductDetail() {
                 alt={productToShow.title}
               />
             </figure>
-            <article>
-              <h1 className="mb-2 text-2xl font-medium">
+            <article className="pt-2">
+              <h1 className="mb-1 text-2xl font-medium">
                 {productToShow.price}
               </h1>
               <h2 className="text-md font-medium">{productToShow.title}</h2>

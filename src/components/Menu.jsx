@@ -39,7 +39,7 @@ function Menu() {
         </section>
 
         <section className="z-10 hidden h-16 w-screen justify-between bg-slate-100 pr-7 dark:bg-slate-900 lg:flex">
-          <ul className="font-carter flex gap-7 text-2xl">
+          <ul className="font-carter flex gap-2 xl:gap-7 text-2xl">
             <li className="text-5xl  font-black text-green-400 dark:text-emerald-400">
               Shoppi
             </li>

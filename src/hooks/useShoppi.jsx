@@ -19,7 +19,7 @@ function ShoppiPrivider({ children }) {
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
   const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
 
-  const [detailProduct, setDetailProduct] = useState(false)
+  const [detailProduct, setDetailProduct] = useState(true)
   const [productToShow, setProductToShow] = useState({})
 
   const toggleMenu = () => {
