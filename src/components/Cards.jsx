@@ -1,54 +1,51 @@
 import React from 'react'
 import { BiPlus, BiCheck } from 'react-icons/bi'
-import { useShoppi } from '../hooks/useShoppi'
 
-function Cards({data}) {
-    console.log(data)
-    
-    const {
-      cartProducts,
-      setCartProducts,
-      count,
-      setCount,
-      setDetailProduct,
-      setProductToShow,
-    } = useShoppi()
+function Cards({
+  data,
+  cartProducts,
+  setCartProducts,
+  count,
+  setCount,
+  setDetailProduct,
+  setProductToShow,
+}) {
+  console.log(data)
 
   const showProduct = (productDetail) => {
     setDetailProduct(true)
     setProductToShow(productDetail)
-    }
-  
-    const addProductsToCart = (event, productData) => {
-      event.stopPropagation()
-      setCount(count + 1)
-      setCartProducts([...cartProducts, productData])
+  }
+
+  const addProductsToCart = (event, productData) => {
+    event.stopPropagation()
+    setCount(count + 1)
+    setCartProducts([...cartProducts, productData])
     //   openCheckoutSideMenu()
     //   closeProductDetail()
+  }
+
+  const renderIcon = (id) => {
+    const isInCart =
+      cartProducts.filter((product) => product.id === id).length > 0
+
+    if (isInCart) {
+      return (
+        <div className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-black p-1">
+          <BiCheck className="h-6 w-6 cursor-pointer text-white"></BiCheck>
+        </div>
+      )
+    } else {
+      return (
+        <div
+          className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-white p-1"
+          onClick={(event) => addProductsToCart(event, data)}
+        >
+          <BiPlus className="h-6 w-6 cursor-pointer text-black"></BiPlus>
+        </div>
+      )
     }
-
-
-    const renderIcon = (id) => {
-      const isInCart =
-        cartProducts.filter((product) => product.id === id).length > 0
-
-      if (isInCart) {
-        return (
-          <div className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-black p-1">
-            <BiCheck className="h-6 w-6 cursor-pointer text-white"></BiCheck>
-          </div>
-        )
-      } else {
-        return (
-          <div
-            className="absolute right-0 top-0 m-2 flex h-6 w-6 items-center justify-center rounded-full bg-white p-1"
-            onClick={(event) => addProductsToCart(event, data)}
-          >
-            <BiPlus className="h-6 w-6 cursor-pointer text-black"></BiPlus>
-          </div>
-        )
-      }
-    }
+  }
 
   return (
     <section className="grid justify-center justify-items-center gap-5 px-5 pt-9 md:grid-cols-3 lg:grid-cols-4 ">
