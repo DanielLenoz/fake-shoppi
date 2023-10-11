@@ -17,6 +17,9 @@ function ShoppiPrivider({ children }) {
   const [checkoutSideMenu, setCheckoutSideMenu] = useState(false)
   const [productToShow, setProductToShow] = useState({})
   const [cartProducts, setCartProducts] = useState([])
+  const [order, setOrder] = useState([])
+const [searchByTitle, setSearchByTitle] = useState(null)
+
 
   const toggleMenu = () => {
     setMenuActive(!menuActive)
@@ -63,6 +66,7 @@ function ShoppiPrivider({ children }) {
         detailProduct,
         productToShow,
         checkoutSideMenu,
+        order,
         toggleMenu,
         toggleTheme,
         toggleDetailProduct,
@@ -72,6 +76,7 @@ function ShoppiPrivider({ children }) {
         setDetailProduct,
         setProductToShow,
         setCheckoutSideMenu,
+        setOrder,
       }}
     >
       {children}
