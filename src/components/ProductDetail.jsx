@@ -8,7 +8,7 @@ function ProductDetail() {
   return (
     <>
       {detailProduct && (
-        <aside className=" fixed right-0 top-0 z-10 md:w-1/4 h-screen w-screen dark:text-slate-100 dark:bg-slate-700 bg-white ">
+        <aside className=" fixed right-0 top-0 z-10 md:w-1/4 h-screen w-screen dark:text-slate-100 dark:bg-slate-700 bg-slate-100 ">
           <section className="relative top-8 lg:top-16 px-3">
             <section className="flex items-center justify-between py-2">
               <h2 className="text-xl font-medium">Detail</h2>

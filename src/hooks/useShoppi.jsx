@@ -18,7 +18,7 @@ function ShoppiPrivider({ children }) {
   const [productToShow, setProductToShow] = useState({})
   const [cartProducts, setCartProducts] = useState([])
   const [order, setOrder] = useState([])
-const [searchByTitle, setSearchByTitle] = useState(null)
+  const [searchByTitle, setSearchByTitle] = useState(null)
 
 
   const toggleMenu = () => {

@@ -12,8 +12,8 @@ function OrderCard({ id, title, imageUrl, price, handleDelete }) {
     )
   }
   return (
-    <div className="mb-3 flex items-center justify-between dark:bg-slate-800 rounded-xl bg-slate-200">
-      <div className="flex items-center gap-2">
+    <section className="mb-3 pr-4 flex items-center justify-between dark:bg-slate-800 rounded-xl bg-slate-200">
+      <article className="flex items-center gap-2">
         <figure className="h-20 w-20">
           <img
             className="h-full w-full rounded-lg object-cover"
@@ -22,12 +22,12 @@ function OrderCard({ id, title, imageUrl, price, handleDelete }) {
           />
         </figure>
         <p className="text-sm font-light">{title}</p>
-      </div>
-      <div className="flex items-center gap-2">
+      </article>
+      <article className="flex items-center gap-2">
         <p className="text-lg font-medium">{price}</p>
         {renderXMarkIcon}
-      </div>
-    </div>
+      </article>
+    </section>
   )
 }
 

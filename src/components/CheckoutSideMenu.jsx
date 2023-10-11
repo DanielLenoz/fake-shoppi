@@ -14,6 +14,7 @@ function CheckoutSideMenu() {
     setCartProducts,
     setCount,
     setOrder,
+    order,
   } = useShoppi()
 
   const handleDelete = (id) => {
@@ -29,16 +30,17 @@ function CheckoutSideMenu() {
       totalProducts: cartProducts.length,
       totalPrice: totalPrice(cartProducts),
     }
-
+    setCount(0)
     setOrder([...order, orderToAdd])
     setCartProducts([])
-    setSearchByTitle(null)
+    toggleCheckoutSideMenu()
+    // setSearchByTitle(null)
   }
 
   return (
     <>
       {checkoutSideMenu && (
-        <aside className=" fixed right-0 top-0 z-10 h-screen w-screen bg-white dark:bg-slate-700 dark:text-slate-100 md:w-1/4 ">
+        <aside className=" fixed right-0 top-0 z-10 h-screen w-screen bg-slate-100 dark:bg-slate-700 dark:text-slate-100 md:w-1/4 ">
           <section className="relative top-8 h-screen px-3 lg:top-16 ">
             <section className="flex items-center justify-between py-2">
               <h2 className="text-xl font-medium">My Order</h2>
@@ -68,7 +70,7 @@ function CheckoutSideMenu() {
                   ${totalPrice(cartProducts)}
                 </span>
               </p>
-              <Link to="/my-orders/">
+              <Link to="/my-orders/last">
                 <button
                   className="w-full rounded-lg bg-black py-3 text-white"
                   onClick={() => handleCheckout()}
