@@ -18,6 +18,7 @@ function Home() {
     setfilterData,
     setSearchValue,
     toggleDetailProduct,
+    user,
   } = useShoppi()
 
   useEffect(() => {
@@ -39,6 +40,7 @@ function Home() {
           data.map((items) => (
             <Cards
               key={items.id}
+              user={user}
               data={items}
               cartProducts={cartProducts}
               count={count}

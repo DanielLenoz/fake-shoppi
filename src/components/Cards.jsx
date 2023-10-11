@@ -1,8 +1,10 @@
 import React from 'react'
 import { BiPlus, BiCheck } from 'react-icons/bi'
+import { useNavigate } from 'react-router-dom'
 
 function Cards({
   data,
+  user,
   cartProducts,
   setCartProducts,
   count,
@@ -12,6 +14,8 @@ function Cards({
   setCheckoutSideMenu,
   toggleDetailProduct,
 }) {
+  const navigate = useNavigate()
+
   const showProduct = (productDetail) => {
     setDetailProduct(true)
     setCheckoutSideMenu(false)
@@ -20,11 +24,15 @@ function Cards({
 
   const addProductsToCart = (event, productData) => {
     event.stopPropagation()
-    setCount(count + 1)
-    setCartProducts([...cartProducts, productData])
-    toggleDetailProduct()
-    setCheckoutSideMenu(true)
-    console.log(productData)
+    if (!!user) {
+      setCount(count + 1)
+      setCartProducts([...cartProducts, productData])
+      toggleDetailProduct()
+      setCheckoutSideMenu(true)
+      console.log(productData)
+    } else {
+      navigate('/SignIn')
+    }
   }
   const renderIcon = (id) => {
     const isInCart =

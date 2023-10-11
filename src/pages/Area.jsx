@@ -7,7 +7,6 @@ import { Cards } from '../components/Cards'
 function Area() {
   const { id } = useParams()
 
-  console.log(id)
   const {
     items,
     cartProducts,
@@ -41,7 +40,6 @@ function Area() {
   }, [id, searchValue.length === 0])
 
   const data = filterData.length > 0 ? filterData : items
-  console.log(filterData)
 
   return (
     <main className="grid justify-center justify-items-center gap-5 bg-slate-100 px-5 pt-9 dark:bg-slate-900 lg:pt-16 ">

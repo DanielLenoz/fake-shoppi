@@ -20,7 +20,10 @@ function ShoppiPrivider({ children }) {
   const [order, setOrder] = useState([])
   const [searchValue, setSearchValue] = useState('')
   const [filterData, setfilterData] = useState([])
-
+  const [userName, setUserName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [checkedPerson, setCheckedPerson] = useState(false)
 
   const toggleMenu = () => {
     setMenuActive(!menuActive)
@@ -33,10 +36,9 @@ function ShoppiPrivider({ children }) {
   const toggleDetailProduct = () => {
     setDetailProduct(!detailProduct)
     setCheckoutSideMenu(false)
-
   }
 
-  const toggleCheckoutSideMenu = () => { 
+  const toggleCheckoutSideMenu = () => {
     setCheckoutSideMenu(!checkoutSideMenu)
     setDetailProduct(false)
   }
@@ -70,6 +72,10 @@ function ShoppiPrivider({ children }) {
         order,
         filterData,
         searchValue,
+        userName,
+        email,
+        password,
+        checkedPerson,
         toggleMenu,
         toggleTheme,
         toggleDetailProduct,
@@ -82,6 +88,10 @@ function ShoppiPrivider({ children }) {
         setOrder,
         setfilterData,
         setSearchValue,
+        setUserName,
+        setEmail,
+        setPassword,
+        setCheckedPerson,
       }}
     >
       {children}

@@ -12,7 +12,8 @@ import { useShoppi } from '../hooks/useShoppi'
 function Menu() {
   const activeStyle = 'border-b-4 border-green-400 dark:border-emerald-400'
 
-  const { menuActive, themes, toggleMenu, toggleTheme, count } = useShoppi()
+  const { menuActive, themes, toggleMenu, toggleTheme, count, checkedPerson } =
+    useShoppi()
 
   return (
     <header>
@@ -54,15 +55,25 @@ function Menu() {
             })}
           </ul>
           <ul className="font-carter flex gap-7 text-2xl">
-            {routes2.map((routes) => {
-              return (
-                <MuneList
-                  key={routes.to}
-                  routes={routes}
-                  activeStyle={activeStyle}
-                />
-              )
-            })}
+            {!!checkedPerson
+              ? routes2.slice(0, 1).map((routes) => {
+                  return (
+                    <MuneList
+                      key={routes.to}
+                      routes={routes}
+                      activeStyle={activeStyle}
+                    />
+                  )
+                })
+              : routes2.slice(1).map((routes) => {
+                  return (
+                    <MuneList
+                      key={routes.to}
+                      routes={routes}
+                      activeStyle={activeStyle}
+                    />
+                  )
+                })}
             <li className="flex space-x-2 self-center">
               <RiShoppingCartFill className="h-8 w-8  fill-slate-900 dark:fill-slate-100" />
               <div className=" text-slate-900 dark:text-slate-100">{count}</div>
@@ -70,9 +81,8 @@ function Menu() {
           </ul>
         </section>
       </nav>
-
       {!!menuActive && (
-        <section className="fixed top-0 z-20 grid h-screen w-screen justify-center bg-slate-100 dark:bg-slate-900">
+        <section className="fixed top-0 z-20 grid h-screen w-screen justify-center justify-items-center bg-slate-100 dark:bg-slate-900">
           <ul className="font-carter mt-20 grid  gap-1 text-2xl">
             <li className=" text-center text-5xl font-black text-green-400 dark:text-emerald-400">
               Shoppi
@@ -89,15 +99,25 @@ function Menu() {
             })}
           </ul>
           <ul className="font-carter flex gap-7 text-2xl">
-            {routes2.map((routes) => {
-              return (
-                <MuneList
-                  key={routes.to}
-                  routes={routes}
-                  activeStyle={activeStyle}
-                />
-              )
-            })}
+            {!!checkedPerson
+              ? routes2.slice(0, 1).map((routes) => {
+                  return (
+                    <MuneList
+                      key={routes.to}
+                      routes={routes}
+                      activeStyle={activeStyle}
+                    />
+                  )
+                })
+              : routes2.slice(1).map((routes) => {
+                  return (
+                    <MuneList
+                      key={routes.to}
+                      routes={routes}
+                      activeStyle={activeStyle}
+                    />
+                  )
+                })}
           </ul>
         </section>
       )}
@@ -151,8 +171,8 @@ const routes2 = [
     text: 'MyAccount',
   },
   {
-    to: '/SingIn',
-    text: 'Sing In',
+    to: '/SignIn',
+    text: 'Sign In',
   },
 ]
 
