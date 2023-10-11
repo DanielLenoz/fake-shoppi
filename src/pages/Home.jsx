@@ -35,20 +35,24 @@ function Home() {
     <main className="grid justify-center justify-items-center gap-5 bg-slate-100 px-5 pt-9 dark:bg-slate-900 lg:pt-16 ">
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       <section className="px-5dark:bg-slate-900 grid justify-center justify-items-center gap-5 md:grid-cols-3 lg:grid-cols-4 ">
-        {data.map((items) => (
-          <Cards
-            key={items.id}
-            data={items}
-            cartProducts={cartProducts}
-            count={count}
-            setCartProducts={setCartProducts}
-            setCount={setCount}
-            setProductToShow={setProductToShow}
-            setDetailProduct={setDetailProduct}
-            setCheckoutSideMenu={setCheckoutSideMenu}
-            toggleDetailProduct={toggleDetailProduct}
-          />
-        ))}
+        {data.length > 0 ? (
+          data.map((items) => (
+            <Cards
+              key={items.id}
+              data={items}
+              cartProducts={cartProducts}
+              count={count}
+              setCartProducts={setCartProducts}
+              setCount={setCount}
+              setProductToShow={setProductToShow}
+              setDetailProduct={setDetailProduct}
+              setCheckoutSideMenu={setCheckoutSideMenu}
+              toggleDetailProduct={toggleDetailProduct}
+            />
+          ))
+        ) : (
+          <p>no se encuentra</p>
+        )}
       </section>
     </main>
   )
