@@ -23,6 +23,7 @@ function ShoppiPrivider({ children }) {
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [ubicacion, setUbicacion] = useState('')
   const [checkedPerson, setCheckedPerson] = useState(false)
 
   const toggleMenu = () => {
@@ -76,6 +77,7 @@ function ShoppiPrivider({ children }) {
         email,
         password,
         checkedPerson,
+        ubicacion,
         toggleMenu,
         toggleTheme,
         toggleDetailProduct,
@@ -91,6 +93,7 @@ function ShoppiPrivider({ children }) {
         setUserName,
         setEmail,
         setPassword,
+        setUbicacion,
         setCheckedPerson,
       }}
     >

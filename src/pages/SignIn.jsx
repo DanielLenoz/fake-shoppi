@@ -1,6 +1,6 @@
 import React from 'react'
 import { useShoppi } from '../hooks/useShoppi'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function SignIn() {
   const {
@@ -10,12 +10,16 @@ function SignIn() {
     setPassword,
     username,
     setUserName,
+    ubicacion,
+    setUbicacion,
     setCheckedPerson,
   } = useShoppi()
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setCheckedPerson(true)
+    navigate('/My-Account')
   }
   return (
     <main className="grid justify-center justify-items-center pt-[20%] dark:text-slate-100">
@@ -64,15 +68,24 @@ function SignIn() {
             required
           />
         </div>
+        <div className=" space-x-2 text-base font-medium ">
+          <label htmlFor="username">Ubicacion de entrega:</label>
+          <input
+            className=" w-11/12 rounded-xl bg-slate-200 dark:bg-slate-700 "
+            type="text"
+            id="username"
+            value={ubicacion}
+            onChange={(e) => setUbicacion(e.target.value)}
+            required
+          />
+        </div>
 
-        <Link to={'/My-Account'} className="flex justify-center ">
-          <button
-            type="submit"
-            className="h-9 px-9 space-x-2 justify-self-center rounded-xl bg-slate-200 text-center text-base font-medium hover:bg-green-400 hover:text-slate-100 dark:bg-slate-700 dark:hover:bg-green-400"
-          >
-            Iniciar Sesión
-          </button>
-        </Link>
+        <button
+          type="submit"
+          className="h-9 space-x-2 justify-self-center rounded-xl bg-slate-200 px-9 text-center text-base font-medium hover:bg-green-400 hover:text-slate-100 dark:bg-slate-700 dark:hover:bg-green-400"
+        >
+          Iniciar Sesión
+        </button>
       </form>
     </main>
   )

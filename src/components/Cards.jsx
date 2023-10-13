@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Cards({
   data,
-  user,
+  checkedPerson,
   cartProducts,
   setCartProducts,
   count,
@@ -21,15 +21,13 @@ function Cards({
     setCheckoutSideMenu(false)
     setProductToShow(productDetail)
   }
-
   const addProductsToCart = (event, productData) => {
     event.stopPropagation()
-    if (!!user) {
+    if (!!checkedPerson) {
       setCount(count + 1)
       setCartProducts([...cartProducts, productData])
       toggleDetailProduct()
       setCheckoutSideMenu(true)
-      console.log(productData)
     } else {
       navigate('/SignIn')
     }

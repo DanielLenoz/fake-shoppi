@@ -106,6 +106,7 @@ function Menu() {
                       key={routes.to}
                       routes={routes}
                       activeStyle={activeStyle}
+                      onClick={() => (toggleMenu(), window.scrollTo(0, 0))}
                     />
                   )
                 })
@@ -115,6 +116,7 @@ function Menu() {
                       key={routes.to}
                       routes={routes}
                       activeStyle={activeStyle}
+                      onClick={() => (toggleMenu(), window.scrollTo(0, 0))}
                     />
                   )
                 })}
@@ -167,7 +169,7 @@ const routes = [
 
 const routes2 = [
   {
-    to: '/MyAccount',
+    to: '/My-Account',
     text: 'MyAccount',
   },
   {

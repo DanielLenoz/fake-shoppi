@@ -9,6 +9,7 @@ function Area() {
 
   const {
     items,
+    checkedPerson,
     cartProducts,
     setCartProducts,
     count,
@@ -50,6 +51,7 @@ function Area() {
             <Cards
               key={items.id}
               data={items}
+              checkedPerson={checkedPerson}
               cartProducts={cartProducts}
               count={count}
               setCartProducts={setCartProducts}
