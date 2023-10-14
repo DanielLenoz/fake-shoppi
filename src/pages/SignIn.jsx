@@ -16,6 +16,37 @@ function SignIn() {
   } = useShoppi()
   const navigate = useNavigate()
 
+  const formFields = [
+    {
+      label: 'Nombre de Usuario:',
+      type: 'text',
+      id: 'username',
+      value: username,
+      onChange: (e) => setUserName(e.target.value),
+    },
+    {
+      label: 'Correo Electrónico:',
+      type: 'email',
+      id: 'email',
+      value: email,
+      onChange: (e) => setEmail(e.target.value),
+    },
+    {
+      label: 'Contraseña:',
+      type: 'password',
+      id: 'password',
+      value: password,
+      onChange: (e) => setPassword(e.target.value),
+    },
+    {
+      label: 'Ubicación de entrega:',
+      type: 'text',
+      id: 'ubicacion',
+      value: ubicacion,
+      onChange: (e) => setUbicacion(e.target.value),
+    },
+  ]
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setCheckedPerson(true)
@@ -35,50 +66,19 @@ function SignIn() {
         onSubmit={handleSubmit}
         className="grid gap-3 rounded-xl bg-gray-400 p-2 dark:bg-slate-800"
       >
-        <div className=" space-x-2 text-base font-medium ">
-          <label htmlFor="username">Nombre de Usuario:</label>
-          <input
-            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700 "
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-        </div>
-        <div className=" space-x-2 text-base font-medium ">
-          <label htmlFor="email">Correo Electrónico:</label>
-          <input
-            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700"
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className=" space-x-2 text-base font-medium ">
-          <label htmlFor="password">Contraseña:</label>
-          <input
-            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700"
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className=" space-x-2 text-base font-medium ">
-          <label htmlFor="username">Ubicacion de entrega:</label>
-          <input
-            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700 "
-            type="text"
-            id="username"
-            value={ubicacion}
-            onChange={(e) => setUbicacion(e.target.value)}
-            required
-          />
-        </div>
+        {formFields.map((field, index) => (
+          <div key={index} className="space-x-2 text-base font-medium">
+            <label htmlFor={field.id}>{field.label}</label>
+            <input
+              className="w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700"
+              type={field.type}
+              id={field.id}
+              value={field.value}
+              onChange={field.onChange}
+              required
+            />
+          </div>
+        ))}
 
         <button
           type="submit"

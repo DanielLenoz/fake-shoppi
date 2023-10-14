@@ -6,8 +6,8 @@ import {
   BsArrowBarRight,
   BsFillGeoAltFill,
 } from 'react-icons/bs'
+import {  NavLink, useNavigate } from 'react-router-dom'
 import { useShoppi } from '../hooks/useShoppi'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 function MyAccount() {
   const { userName, order, email, ubicacion, setCheckedPerson } = useShoppi()

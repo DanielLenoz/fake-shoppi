@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { Cards } from '../components/Cards'
 import { useShoppi } from '../hooks/useShoppi'
+import { Cards } from '../components/Cards'
 import { Search } from '../components/Search'
 
 function Home() {

@@ -4,15 +4,12 @@ const ShoppiContext = createContext()
 
 function ShoppiPrivider({ children }) {
   const [items, setItems] = useState([])
-
   const [count, setCount] = useState(0)
-
+  
   const storedThemes = localStorage.getItem('theme')
-
-  const [menuActive, setMenuActive] = useState(false)
-
   const [themes, setTemes] = useState(storedThemes === 'dark')
-
+  
+  const [menuActive, setMenuActive] = useState(false)
   const [detailProduct, setDetailProduct] = useState(false)
   const [checkoutSideMenu, setCheckoutSideMenu] = useState(false)
   const [productToShow, setProductToShow] = useState({})

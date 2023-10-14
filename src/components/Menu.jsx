@@ -178,4 +178,4 @@ const routes2 = [
   },
 ]
 
-export { Menu, MuneList, routes }
+export { Menu }
