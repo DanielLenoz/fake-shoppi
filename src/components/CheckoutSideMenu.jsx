@@ -40,7 +40,7 @@ function CheckoutSideMenu() {
   return (
     <>
       {checkoutSideMenu && (
-        <aside className=" fixed right-0 top-0 z-10 h-screen w-screen bg-slate-100 dark:bg-slate-700 dark:text-slate-100 md:w-1/4 ">
+        <aside className=" fixed right-0 top-0 z-10 h-screen w-screen border-2 border-slate-500 bg-slate-100 dark:bg-slate-700 dark:text-slate-100 md:w-1/3 ">
           <section className="relative top-8 h-screen px-3 lg:top-16 ">
             <section className="flex items-center justify-between py-2">
               <h2 className="text-xl font-medium">My Order</h2>
@@ -50,7 +50,7 @@ function CheckoutSideMenu() {
               />
             </section>
 
-            <article className="overflow-y-scroll h-3/4">
+            <article className="h-3/4 overflow-y-scroll">
               {cartProducts.map((product) => (
                 <OrderCard
                   key={product.id}
@@ -65,14 +65,14 @@ function CheckoutSideMenu() {
 
             <div className=" absolute bottom-9 w-11/12 pb-3 lg:bottom-16">
               <p className="mb-2 flex items-center justify-between">
-                <span className="font-light">Total:</span>
+                <span className="text-base font-bold lg:text-lg">Total:</span>
                 <span className="text-2xl font-medium">
                   ${totalPrice(cartProducts)}
                 </span>
               </p>
               <Link to="/my-orders/last">
                 <button
-                  className="w-full rounded-lg bg-black py-3 text-white"
+                  className="w-full rounded-lg bg-black py-3 text-base text-white lg:text-lg"
                   onClick={() => handleCheckout()}
                 >
                   Checkout

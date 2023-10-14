@@ -12,7 +12,7 @@ function OrderCard({ id, title, imageUrl, price, handleDelete }) {
     )
   }
   return (
-    <section className="mb-3 pr-4 flex items-center justify-between dark:bg-slate-800 rounded-xl bg-slate-200">
+    <section className="mb-3 pr-4 flex gap-3 items-center justify-between dark:bg-slate-800 rounded-xl bg-slate-200">
       <article className="flex items-center gap-2">
         <figure className="h-20 w-20">
           <img
@@ -21,10 +21,10 @@ function OrderCard({ id, title, imageUrl, price, handleDelete }) {
             alt={title}
           />
         </figure>
-        <p className="text-sm font-light">{title}</p>
+        <p className="text-base lg:text-lg font-light">{title}</p>
       </article>
       <article className="flex items-center gap-2">
-        <p className="text-lg font-medium">{price}</p>
+        <p className=" text-base lg:text-lg font-medium">{price}</p>
         {renderXMarkIcon}
       </article>
     </section>

@@ -9,7 +9,7 @@ function Search({ searchValue, setSearchValue }) {
           className="input rounded-ful font-roboto h-12 w-80 rounded-full bg-slate-100 text-base font-normal focus-visible:border-none focus-visible:outline-none dark:bg-slate-900 dark:text-slate-100 lg:h-14 lg:w-[684px] lg:text-lg"
           type="text"
           value={searchValue}
-          placeholder="Que idea te llama la atencion"
+          placeholder="Que producto buscas"
           onChange={(event) =>
             setSearchValue(event.target.value.toLocaleLowerCase())
           }

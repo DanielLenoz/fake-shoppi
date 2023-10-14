@@ -40,7 +40,7 @@ function Menu() {
         </section>
 
         <section className="z-10 hidden h-16 w-screen justify-between bg-slate-100 pr-7 dark:bg-slate-900 lg:flex">
-          <ul className="font-carter flex gap-2 text-2xl xl:gap-7">
+          <ul className="flex gap-2 text-2xl xl:gap-7">
             <li className="text-5xl  font-black text-green-400 dark:text-emerald-400">
               Shoppi
             </li>
@@ -54,7 +54,7 @@ function Menu() {
               )
             })}
           </ul>
-          <ul className="font-carter flex gap-7 text-2xl">
+          <ul className="flex gap-7 text-2xl">
             {!!checkedPerson
               ? routes2.slice(0, 1).map((routes) => {
                   return (
@@ -83,7 +83,7 @@ function Menu() {
       </nav>
       {!!menuActive && (
         <section className="fixed top-0 z-20 grid h-screen w-screen justify-center justify-items-center bg-slate-100 dark:bg-slate-900">
-          <ul className="font-carter mt-20 grid  gap-1 text-2xl">
+          <ul className="mt-20 grid  gap-1 text-2xl">
             <li className=" text-center text-5xl font-black text-green-400 dark:text-emerald-400">
               Shoppi
             </li>
@@ -98,7 +98,7 @@ function Menu() {
               )
             })}
           </ul>
-          <ul className="font-carter flex gap-7 text-2xl">
+          <ul className="flex gap-7 text-2xl">
             {!!checkedPerson
               ? routes2.slice(0, 1).map((routes) => {
                   return (
@@ -170,7 +170,7 @@ const routes = [
 const routes2 = [
   {
     to: '/My-Account',
-    text: 'MyAccount',
+    text: 'My Account',
   },
   {
     to: '/SignIn',

@@ -22,11 +22,11 @@ function SignIn() {
     navigate('/My-Account')
   }
   return (
-    <main className="grid justify-center justify-items-center pt-[20%] dark:text-slate-100">
+    <main className="grid justify-center justify-items-center pt-[20%] dark:text-slate-100 lg:pt-[10%]">
       <h1 className="text-5xl font-black text-green-400 dark:text-emerald-400">
         Sign In
       </h1>
-      <article className="grid gap-2 py-5 text-center text-base font-semibold">
+      <article className="grid gap-2 py-5 text-center text-base font-semibold lg:text-lg">
         <p>bienvenidos a mi fake shoppi</p>
         <p>antes de hacer cualquie compra completa la siguiente informacion</p>
       </article>
@@ -38,7 +38,7 @@ function SignIn() {
         <div className=" space-x-2 text-base font-medium ">
           <label htmlFor="username">Nombre de Usuario:</label>
           <input
-            className=" w-11/12 rounded-xl bg-slate-200 dark:bg-slate-700 "
+            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700 "
             type="text"
             id="username"
             value={username}
@@ -49,7 +49,7 @@ function SignIn() {
         <div className=" space-x-2 text-base font-medium ">
           <label htmlFor="email">Correo Electrónico:</label>
           <input
-            className=" w-11/12 rounded-xl bg-slate-200 dark:bg-slate-700"
+            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700"
             type="email"
             id="email"
             value={email}
@@ -60,7 +60,7 @@ function SignIn() {
         <div className=" space-x-2 text-base font-medium ">
           <label htmlFor="password">Contraseña:</label>
           <input
-            className=" w-11/12 rounded-xl bg-slate-200 dark:bg-slate-700"
+            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700"
             type="password"
             id="password"
             value={password}
@@ -71,7 +71,7 @@ function SignIn() {
         <div className=" space-x-2 text-base font-medium ">
           <label htmlFor="username">Ubicacion de entrega:</label>
           <input
-            className=" w-11/12 rounded-xl bg-slate-200 dark:bg-slate-700 "
+            className=" w-11/12 rounded-xl bg-slate-200 pl-2 dark:bg-slate-700 "
             type="text"
             id="username"
             value={ubicacion}
@@ -82,7 +82,7 @@ function SignIn() {
 
         <button
           type="submit"
-          className="h-9 space-x-2 justify-self-center rounded-xl bg-slate-200 px-9 text-center text-base font-medium hover:bg-green-400 hover:text-slate-100 dark:bg-slate-700 dark:hover:bg-green-400"
+          className="h-9 space-x-2 justify-self-center rounded-xl bg-slate-200 px-9 text-center text-base font-medium hover:bg-green-400 hover:text-slate-100 dark:bg-slate-700 dark:hover:bg-green-400 lg:text-lg"
         >
           Iniciar Sesión
         </button>

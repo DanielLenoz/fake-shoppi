@@ -7,7 +7,7 @@ import {
   BsFillGeoAltFill,
 } from 'react-icons/bs'
 import { useShoppi } from '../hooks/useShoppi'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 function MyAccount() {
   const { userName, order, email, ubicacion, setCheckedPerson } = useShoppi()
@@ -22,7 +22,7 @@ function MyAccount() {
   }
 
   return (
-    <main className="grid justify-center pt-14 dark:text-slate-100">
+    <main className="grid justify-center pt-24 dark:text-slate-100">
       <h1 className='dark:text-emerald-400" dark:text-emerald-400" mb-1 text-5xl font-black text-green-400'>
         My Account
       </h1>
@@ -30,14 +30,17 @@ function MyAccount() {
         <BsPersonCircle className="h-20 w-20" />
         <p className=" text-2xl font-semibold">{userName}</p>
       </section>
-      <section className="grid gap-7 text-base font-light md:text-xl">
-        <article className="flex items-center justify-between">
-          <Link to={'/my-orders'} className="flex items-center space-x-3">
+      <section className="grid gap-7 text-base font-light lg:text-lg">
+        <NavLink
+          to={'/my-orders'}
+          className="flex items-center justify-between"
+        >
+          <div className="flex items-center space-x-3">
             <BsFillCartFill className="h-7 w-7" />
             <p>My orders</p>
-          </Link>
+          </div>
           <span>{order.length}</span>
-        </article>
+        </NavLink>
         <article onClick={() => setDetail(!detail)}>
           <div className="flex items-center space-x-3">
             <BsFillPersonFill className="h-7 w-7" />
